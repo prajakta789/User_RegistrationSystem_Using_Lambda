@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 	public class UserRegistration {
 
-		 /*
+		  /*
 	    Created a method to validate first name
 	     */
 	    public boolean firstName(String firstName) {
@@ -50,6 +50,16 @@ import java.util.regex.Pattern;
 	    */
 	    public boolean password(String password) {
 	        String regex = "^[0-9a-zA-Z!,@#$&*().]{8,}$";
+	        Pattern pattern = Pattern.compile(regex);
+	        Matcher matcher = pattern.matcher(password);
+	        return matcher.matches();
+	    }
+
+	    /*
+	    Created a method to validate password with atleast one upper case
+	    */
+	    public boolean passwordRule2(String password) {
+	        String regex = "^(?=.*[A-Z]){1}(?=.*[a-z]).{8,}$";
 	        Pattern pattern = Pattern.compile(regex);
 	        Matcher matcher = pattern.matcher(password);
 	        return matcher.matches();
